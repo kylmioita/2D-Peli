@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-
+    [SerializeField] private float speed;
     public float moveSpeed = 5f;
 
-    public Rigidbody2D rb;
+    public Rigidbody2D body;
     public Animator animator;
 
     Vector2 movement;
 
+    private void Awake()
+    {
+        body = GetComponent<Rigidbody2D>();
+    }
 
     void Update()
     {
@@ -22,22 +26,21 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("Vertical", movement.y);
         animator.SetFloat("Speed", movement.sqrMagnitude);
 
-        bool flipped = movement.x < 0;
-        this.transform.rotation = Quaternion.Euler(new Vector3(0f, flipped ? 180f : 0f, 0f));
+        float horizotalInput = Input.GetAxis("Horizontal");
+        body.velocity = new Vector2(horizotalInput * speed, body.velocity.y);
 
+
+        if (horizotalInput > 0.01f)
+            transform.localScale = new Vector3(-8, 8, 1);
+        else if (horizotalInput < -0.01f)
+            transform.localScale = new Vector3(8, 8, 1);
     }
 
     void FixedUpdate()
     {
-        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
-
-        if (movement != Vector2.zero)
-        {
-            var xMovement = movement.x * moveSpeed * Time.deltaTime;
-            this.transform.Translate(new Vector3(xMovement, 0), Space.World);
-        }
+        body.MovePosition(body.position + movement * moveSpeed * Time.fixedDeltaTime);
     }
-
 }
+
 
 
