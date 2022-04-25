@@ -4,24 +4,34 @@ using UnityEngine;
 
 public class RandomSpawner : MonoBehaviour
 {
-    public Transform[] spawnPoints;
-    public GameObject[] enemyPrefabs;
+    public Transform[] spawnpoints;
+    public GameObject item;
 
-    void Start()
+    public float timeBetweenSpawns = 45f;
+    public float spawnCountdown;
+
+    private void Start()
     {
-        
+        spawnCountdown = timeBetweenSpawns;
     }
 
-    void Update()
+    private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (spawnCountdown <= 0)
         {
-            int randEnemy = Random.Range(0, enemyPrefabs.Length);
-            int randSpawnPoint = Random.Range(0, spawnPoints.Length);
-
-            Instantiate(enemyPrefabs[randEnemy], spawnPoints[randSpawnPoint].position, transform.rotation);
+            SpawnItem();
+            spawnCountdown = timeBetweenSpawns;
         }
+        else
+        {
+            spawnCountdown -= Time.deltaTime;
+        }
+        return;
+    }
 
-
+    void SpawnItem()
+    {
+        Transform _sp = spawnpoints[Random.Range(0, spawnpoints.Length)];
+        Instantiate(item, _sp.position, _sp.rotation);
     }
 }
