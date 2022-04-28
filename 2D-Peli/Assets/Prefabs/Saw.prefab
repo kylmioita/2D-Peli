@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 7361673842798250389}
   - component: {fileID: 7361673842798250388}
   - component: {fileID: 7361673842798250390}
-  - component: {fileID: 7361673842798250385}
   - component: {fileID: 7361673842798250391}
   - component: {fileID: 7361673842798250378}
   - component: {fileID: 7361673842798250379}
   - component: {fileID: 2218274692253467674}
+  - component: {fileID: 722843541}
   m_Layer: 0
   m_Name: Saw
   m_TagString: saw
@@ -107,19 +107,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &7361673842798250385
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7361673842798250384}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec7fa7462570f094bac9611615803e9f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 1
 --- !u!58 &7361673842798250391
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -182,4 +169,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ddfd24e7d537174998e9e8df1559fb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saw: {fileID: 7361673842798250384}
+--- !u!114 &722843541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7361673842798250384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec7fa7462570f094bac9611615803e9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1

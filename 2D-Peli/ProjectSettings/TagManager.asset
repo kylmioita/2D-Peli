@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Destroyer
   - saw
+  - Score
   layers:
   - Default
   - TransparentFX
