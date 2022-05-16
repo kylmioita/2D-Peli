@@ -1,9 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Health : MonoBehaviour
 {
+    public GameObject GameOverScreen;
     [SerializeField] private float startingHealth;
     public float currentHealth;
     private Animator anim;
@@ -27,10 +29,12 @@ public class Health : MonoBehaviour
             if (!dead)
             {
 
-
                 anim.SetTrigger("die");
                 GetComponent<PlayerMovement>().enabled = false;
                 dead = true;
+                Debug.Log("GAME OVER");
+                GameOverScreen.SetActive(true);
+
             }
         }
 
