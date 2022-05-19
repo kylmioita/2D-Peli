@@ -13,6 +13,11 @@ public class Score : MonoBehaviour
 
     void Update()
     {
+        this.gameObject.SetActive(!Health.dead);
+        if (Health.dead)
+        {
+            return;
+        }
         GetComponent<UnityEngine.UI.Text>().text = score.ToString();
     }
 }

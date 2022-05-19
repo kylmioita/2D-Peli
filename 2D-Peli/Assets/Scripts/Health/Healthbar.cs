@@ -15,6 +15,13 @@ public class Healthbar : MonoBehaviour
 
     private void Update()
     {
+
+        this.gameObject.SetActive(!Health.dead);
+        if (Health.dead)
+        {
+            return;
+        }
+
         currenthealthBar.fillAmount = playerHealth.currentHealth / 10;
     }
 }

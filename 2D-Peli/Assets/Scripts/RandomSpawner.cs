@@ -17,6 +17,12 @@ public class RandomSpawner : MonoBehaviour
 
     private void Update()
     {
+
+        if (Health.dead)
+        {
+            return; 
+        }
+
         if (spawnCountdown <= 0)
         {
             SpawnItem();
@@ -26,7 +32,6 @@ public class RandomSpawner : MonoBehaviour
         {
             spawnCountdown -= Time.deltaTime;
         }
-        return;
     }
 
     void SpawnItem()

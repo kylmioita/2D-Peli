@@ -8,9 +8,9 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.tag == "saw")
         {
-            collision.GetComponent<Health>().TakeDamage(damage);
+            this.gameObject.GetComponent<Health>().TakeDamage(damage);
         }
     }
 }

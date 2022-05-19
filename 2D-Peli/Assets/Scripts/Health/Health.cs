@@ -9,7 +9,7 @@ public class Health : MonoBehaviour
     [SerializeField] private float startingHealth;
     public float currentHealth;
     private Animator anim;
-    private bool dead;
+    public static bool dead;
 
     private void Awake()
     {
