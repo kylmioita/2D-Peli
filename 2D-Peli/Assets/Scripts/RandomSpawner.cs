@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RandomSpawner : MonoBehaviour
 {
@@ -21,6 +22,11 @@ public class RandomSpawner : MonoBehaviour
         if (Health.dead)
         {
             return; 
+        }
+
+        if (!Health.dead)
+        {
+            this.gameObject.SetActive(!Health.dead);
         }
 
         if (spawnCountdown <= 0)

@@ -4,20 +4,29 @@ using UnityEngine;
 
 public class Score : MonoBehaviour
 {
-    public static int score = 0;
+    public static int score;
 
     void Start()
     {
-        score = 0;
+        if (this.gameObject.tag == "GameScore")
+        {
+            score = 0;
+        }
+
     }
 
     void Update()
     {
-        this.gameObject.SetActive(!Health.dead);
-        if (Health.dead)
+        if (this.gameObject.tag == "GameScore")
         {
-            return;
+            this.gameObject.SetActive(!Health.dead);
+
+            if (Health.dead)
+            {
+                return;
+            }
         }
-        GetComponent<UnityEngine.UI.Text>().text = score.ToString();
+
+        GetComponent<UnityEngine.UI.Text>().text = (this.gameObject.tag == "GameScore"? "": "Score: ") + score.ToString();
     }
 }
