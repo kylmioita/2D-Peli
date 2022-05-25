@@ -1,16 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class Score : MonoBehaviour
 {
     public static int score;
+    private Text text;
+    private TextMeshProUGUI text2;
 
     void Start()
     {
         if (this.gameObject.tag == "GameScore")
         {
+            text = GetComponent<Text>();
             score = 0;
+        }
+        else
+        {
+            text2 = GetComponent<TextMeshProUGUI>();
         }
 
     }
@@ -25,8 +34,11 @@ public class Score : MonoBehaviour
             {
                 return;
             }
+            text.text = score.ToString() + "/100";
         }
-
-        GetComponent<UnityEngine.UI.Text>().text = (this.gameObject.tag == "GameScore"? "": "Score: ") + score.ToString();
+        else
+        {
+            text2.text = "score: " + score.ToString();
+        }
     }
 }
