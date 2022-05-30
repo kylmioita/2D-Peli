@@ -4554,7 +4554,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameOverScreen: {fileID: 1054553239}
-  startingHealth: 3
+  startingHealth: 5
   currentHealth: 0
 --- !u!114 &1789763584
 MonoBehaviour:
